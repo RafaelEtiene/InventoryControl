@@ -1,6 +1,6 @@
-listaProdutos = [] #Lista onde os cadastros são armazenados
+listaProdutos = [] 
 
-def cadastrarProduto(codigo): #Função do cadastro de produtos
+def cadastrarProduto(codigo):
     print('Você selecionou a opção de Cadastrar Produto')
     print('Código do Produto {}'.format(codigo))
     nome = input('Por favor entre com o NOME do Produto: ')
@@ -9,10 +9,10 @@ def cadastrarProduto(codigo): #Função do cadastro de produtos
     dicionarioProduto = {'codigo':codigo,
                          'nome':nome,
                          'fabricante':fabricante,
-                         'valor':valor} #Dicionário que armazena as informações do produto
-    listaProdutos.append(dicionarioProduto.copy()) #Inserindo uma cópia do dicionário na lista de produtos
+                         'valor':valor} 
+    listaProdutos.append(dicionarioProduto.copy()) 
 
-def consultarProduto(): #Função de consulta dos produtos
+def consultarProduto(): 
     print('Você selecionou a opção de Consultar Produto')
     while True:
         try:
@@ -23,22 +23,22 @@ def consultarProduto(): #Função de consulta dos produtos
                               '4 - Retornar'))
             if opConsultar == 1:
                 print
-                for produto in listaProdutos: #Laço de repetição para varrer os produtos dentro da lista
-                    for key, value in produto.items():#Laço de repetição para apresentar todos os produtos
+                for produto in listaProdutos: 
+                    for key, value in produto.items():
                         print('{} : {} '.format(key, value))
 
             elif opConsultar == 2:
                 conCodigo = int(input('Digite o CODIGO do Produto: '))
-                for produto in listaProdutos: #Laço de repetição para varrer os produtos dentro da lista
-                    if (produto ['codigo'] == conCodigo): #If para verificar o código desejado dentro dos dicionários
+                for produto in listaProdutos:
+                    if (produto ['codigo'] == conCodigo):
                         for key, value in produto.items():
                             print('{} : {} '.format(key, value))
 
 
             elif opConsultar == 3:
                 conFabricante = input('Digite o FABRICANTE do Produto: ')
-                for produto in listaProdutos: #Laço de repetição para varrer os produtos dentro da lista
-                    if (produto['fabricante'] == conFabricante): #If para verificar o fabricante desejado dentro dos dicionários
+                for produto in listaProdutos: 
+                    if (produto['fabricante'] == conFabricante): 
                         for key, value in produto.items():
                             print('{} : {} '.format(key, value))
 
@@ -49,22 +49,22 @@ def consultarProduto(): #Função de consulta dos produtos
                               continue
 
 
-        except ValueError:  #Tratando erros
+        except ValueError:  
             print('Digite valores inteiros de 1 até 4.')
 
 
-def removerProduto(): #Função de remoção de produtos
+def removerProduto(): 
     print('Bem vindo ao menu de remoção')
     conCodigo = int(input('Digite o CODIGO do Produto que deseja remover: '))
-    for produto in listaProdutos: #Laço de repetição para varrer os produtos dentro da lista
-        if (produto['codigo'] == conCodigo): #If para verificar o código desejado dentro dos dicionários
-            listaProdutos.remove(produto) #Método para remover o produto
+    for produto in listaProdutos: 
+        if (produto['codigo'] == conCodigo): 
+            listaProdutos.remove(produto) 
 
 
-# Programa Principal
+
 
 print('Bem-vindo ao Controle de Estoque da Mercearia do Rafael Lima Etiene de Souza')
-codigoProd = 0 #Contador
+codigoProd = 0 
 while True:
     try:
         opcao = int(input('Escolha a opção desejada: \n'
@@ -73,7 +73,7 @@ while True:
                           '3 - Remover Produto \n'
                           '4 - Sair'))
         if opcao == 1:
-            codigoProd += 1 #Equação que gera o código de cada produto
+            codigoProd += 1 
             cadastrarProduto(codigoProd)
         elif opcao == 2:
             consultarProduto()
